@@ -1,0 +1,67 @@
+<h2 class="heading">Land Requirements</h2>
+<hr class="divider">
+<input placeholder="Search by title or Description..." type="text" id="searchInput" class="searchInput" [(ngModel)]="filter" (ngModelChange)="filterRequirements()">
+ 
+<table>
+  <thead>
+    <tr>
+      <th>S.No</th>
+      <th id="ara">
+        Title
+        <!-- <span (click)="sortRequirements('Title', 'asc')">&#9650;</span>
+        <span (click)="sortRequirements('Title', 'desc')">&#9660;</span> -->
+      </th>
+      <th id="ara"  >
+        Description
+        <!-- <span (click)="sortRequirements('Description', 'asc')">&#9650;</span>
+        <span (click)="sortRequirements('Description', 'desc')">&#9660;</span> -->
+      </th>
+      <th id="ara">
+        Location
+        <span (click)="sortRequirements('Location', 'asc')">&#9650;</span>
+        <span (click)="sortRequirements('Location', 'desc')">&#9660;</span>
+      </th>
+      <th id="ara">
+        Area Size(in SqFt)
+        <span (click)="sortRequirements('AreaSize', 'asc')">&#9650;</span>
+        <span (click)="sortRequirements('AreaSize', 'desc')">&#9660;</span>
+      </th>
+      <th>
+        Status
+        <span (click)="sortRequirements('Status', 'asc')">&#9650;</span>
+        <span (click)="sortRequirements('Status', 'desc')">&#9660;</span>
+      </th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of filteredLandRequirements | paginate: { itemsPerPage: 10, currentPage: page }; let i= index">
+      <td>{{i+1 + (page - 1) * 6}}</td>
+      <td>{{item.Title}}</td>
+      <td>{{item.Description}}</td>
+      <td>{{item.Location}}</td>
+      <td id = "alg" class="right-align">{{item.AreaSize}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td>{{item.Status}}</td>
+      <td>
+        <button class="edit" (click)="EditClickHandler(item.LandRequirementId)">Edit</button>
+        <button class="delete" (click)="openDeleteModal(item)">Delete</button>
+        <button [ngClass]="item.Status === 'Active' ? 'closed' : 'blue'" (click)="ClosedClickHandler(item)">
+         {{item.Status === 'Active' ? 'Mark as Closed' : 'Mark as Active'}}
+       </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+ 
+<!-- Pagination Controls -->
+<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+ 
+<!-- Modal -->
+<div id="deleteModal" class="modal" [ngClass]="{'show': showModal}">
+  <div class="modal-content">
+    <p>Are you sure you want to delete?</p>
+    <button class="modal-btn modal-delete" (click)="confirmDelete()">Yes, Delete</button>
+    <button class="modal-btn modal-cancel" (click)="closeDeleteModal()">Cancel</button>
+  </div>
+</div>
+ 

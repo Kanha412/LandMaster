@@ -1,0 +1,144 @@
+.property-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border: 2px solid #1976d2; /* Professional blue border */
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.heading {
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #0d47a1; /* Dark blue heading */
+}
+
+.property-table th {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background: linear-gradient(45deg, #1976d2, #0d47a1); /* Blue gradient header */
+  color: #ffffff; /* White text */
+}
+
+.edit-button {
+  background-color: #0288d1; /* Light blue for edit */
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.edit-button:disabled {
+  background-color: #9e9e9e; /* Gray disabled */
+  cursor: not-allowed;
+}
+
+.sortDropdown {
+  margin-left: 10px;
+  width: 10%;
+  height: 30px;
+  border-radius: 4rem;
+  background-color: #e3f2fd; /* Light blue input background */
+}
+
+hr.divider {
+  border: 0;
+  height: 2px;
+  background: #1976d2; /* Blue divider */
+  margin-bottom: 10px;
+}
+
+input.searchInput {
+  width: 25%;
+  height: 20px;
+  font-size: 1rem;
+  padding: 5px;
+  border: 1px solid #1976d2; /* Blue border */
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dlt-button {
+  background-color: #d32f2f; /* Dark red delete */
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.dlt-button:disabled {
+  background-color: #9e9e9e; /* Gray disabled */
+  cursor: not-allowed;
+}
+
+.blur {
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Darker overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.header-row {
+  background: linear-gradient(45deg, #1976d2, #0d47a1); /* Blue header gradient */
+}
+
+.delete-button {
+  background-color: #d32f2f; /* Dark red delete */
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.cancel-button {
+  background-color: #388e3c; /* Dark green cancel */
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-align: right;
+}
+
+.property-table th span {
+  cursor: pointer;
+  margin-right: 5px;
+  font-size: 0.8rem;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.center-align {
+  text-align: center;
+}
+
+#ara {
+  text-align: center;
+}

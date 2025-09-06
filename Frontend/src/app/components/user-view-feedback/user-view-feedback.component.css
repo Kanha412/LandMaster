@@ -1,0 +1,168 @@
+/* Modal Styles */
+.modal.show {
+    display: block;
+    position: fixed;
+    z-index: 1050;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    outline: 0;
+    background: rgba(0, 0, 0, 0.6); /* Dark blur overlay */
+    backdrop-filter: blur(12px); /* Strong blur */
+}
+
+.modal-dialog {
+    max-width: 600px;
+    height: 70%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    height: 30%;
+    margin-top: 10px;
+    pointer-events: auto;
+    background-color: #ffffff; /* White modal */
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.3rem;
+    outline: 0;
+}
+
+/* Additional Styles */
+body {
+    font-family: 'Gilroy-Regular', sans-serif;
+    background-color: #f4f4f9; /* Light neutral background */
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    font-family: 'Gilroy-Bold', sans-serif;
+    color: #0d47a1; /* Professional dark blue heading */
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    background: linear-gradient(45deg, #1976d2, #0d47a1); /* Blue gradient table */
+}
+
+.table th,
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    color: #ffffff; /* White header text */
+}
+
+.table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(25, 118, 210, 0.1); /* Subtle blue hover effect */
+}
+
+.bg-table {
+    background-color: #f9f9f9; /* Neutral row background */
+}
+
+.btn-custom-delete {
+    background-color: #d32f2f; /* Dark red button */
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-custom-delete:hover {
+    background-color: #b71c1c; /* Darker red on hover */
+}
+
+.paginator {
+    margin-top: 20px;
+}
+
+.modal-body {
+    position: relative;
+    flex: 1 1 auto;
+    padding: 1rem;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    align-items: center;
+    margin-top: 15px;
+    margin-left: 20px;
+    justify-content: flex-end;
+    padding: 0.75rem;
+    border-bottom-right-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+}
+
+.modal-footer {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.modal-footer .btn {
+    margin: 0 20px;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    margin-left: 40px;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-danger {
+    color: #ffffff;
+    background-color: #d32f2f; /* Dark red */
+}
+
+.btn-danger:hover {
+    color: #ffffff;
+    background-color: #b71c1c; /* Darker red */
+    border-color: #8b0000;
+}
+
+.btn-blue {
+    background-color: #1976d2; /* Professional blue */
+    color: #ffffff;
+}

@@ -1,0 +1,106 @@
+/* General Navbar Styling */
+.navbar {
+  width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+  padding: 1rem 0rem;
+  background: linear-gradient(45deg, #1976d2, #0d47a1); /* Professional blue gradient */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: -1;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #ffffff; /* White text */
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.navbar-toggler-icon {
+  color: #ffffff;
+}
+
+.nav-link {
+  font-size: 1.1em;
+  margin-left: 20px;
+  margin-right: 20px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  color: rgba(255, 255, 255, 0.85); /* Slightly brighter white */
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #ffca28; /* Gold accent on hover */
+  transform: scale(1.1);
+}
+
+/* Dropdown Menu Styling */
+.nav-item .dropdown-menu {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: #1565c0; /* Darker blue for dropdown background */
+  border: none;
+  flex-direction: column; /* Ensure vertical layout */
+}
+
+.nav-item:hover .dropdown-menu {
+  display: flex; /* Display as flexbox */
+}
+
+.nav-item .dropdown-item {
+  color: rgba(255, 255, 255, 0.85); /* Brighter white */
+  padding: 5px 10px;
+  width: 100%; /* Ensure full width */
+  text-decoration: none;
+}
+
+.nav-item .dropdown-item:hover {
+  color: #ffca28; /* Gold accent on hover */
+  background-color: transparent;
+}
+
+/* Logout button styling */
+.btn.logout-btn {
+  background-color: #ffffff;
+  color: #d32f2f; /* Dark red for logout */
+  border: 2px solid #d32f2f;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin-left: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn.logout-btn:hover {
+  background-color: #d32f2f; /* Dark red fill on hover */
+  color: #ffffff;
+}
+
+/* Mobile View Adjustments */
+@media (max-width: 992px) {
+  .navbar {
+    width: 100%;
+  }
+
+  .navbar-left,
+  .navbar-right {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-link,
+  .btn.logout-btn {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+}

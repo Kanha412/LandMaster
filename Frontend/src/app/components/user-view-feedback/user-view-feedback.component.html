@@ -1,0 +1,48 @@
+<h1 style="text-align: center; margin: 10px; font-family: 'Gilroy-Bold',sans-serif;">My Feedback</h1>
+<div class="container mt-5" [ngClass]="{'blur-background': isModalOpen}">
+  <div class="row mb-3">
+    <table class="table table-striped table-hover">
+      <thead style="font-family: 'Gilroy-Medium',sans-serif;">
+        <tr class="text-center bg-common text-white">
+          <th>S.No</th>
+          <th>Feedback</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody class="text-center bg-table" style="font-family: 'Gilroy-Regular',sans-serif;">
+        <tr *ngFor="let feedback of feedbacks | paginate: { itemsPerPage: count, currentPage: page }; let i=index;">
+          <td>{{i+1}}</td>
+          <td>{{feedback.FeedbackText}}</td>
+          <td>
+            <button id="delete" class="btn-custom-delete" *ngIf="feedback.FeedbackId !== undefined" (click)="openDeleteModal(feedback.FeedbackId)">Delete</button>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+ 
+    <!-- For Pagination | paginate: { itemsPerPage: count, currentPage: page } -->
+ 
+    <div class="paginator text-center">
+      <pagination-controls (pageChange)="page=$event"></pagination-controls>
+    </div>
+  </div>
+</div>
+ 
+<!-- Delete Confirmation Modal -->
+<div *ngIf="isModalOpen">
+  <div class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" style="display: block;">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          Are you sure you want to delete?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" (click)="deleteFeedback()">Yes, Delete</button>
+          <button type="button" class="btn btn-blue" (click)="closeDeleteModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+ 

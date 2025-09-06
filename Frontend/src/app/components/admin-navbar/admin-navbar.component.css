@@ -1,0 +1,111 @@
+/* General Navbar Styling */
+.navbar {
+  width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0rem;
+  background: linear-gradient(45deg, #0077b6, #005f8a); /* Modern blue gradient */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #ffffff;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.navbar-toggler-icon {
+  color: #fff;
+}
+
+.nav-link {
+  font-size: 1.1em;
+  margin-left: 20px;
+  margin-right: 20px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  color: rgba(255, 255, 255, 0.8); /* Slightly brighter for readability */
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #00b4d8; /* Modern cyan accent on hover */
+  transform: scale(1.1);
+}
+
+/* Dropdown Menu Styling */
+.nav-item .dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #005f8a; /* Dark blue background */
+  border: none;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.nav-item:hover .dropdown-menu {
+  display: flex;
+}
+
+.nav-item .dropdown-item {
+  color: rgba(255, 255, 255, 0.9);
+  padding: 5px 10px;
+  width: 100%;
+  text-decoration: none;
+}
+
+.nav-item .dropdown-item:hover {
+  color: #00b4d8;
+  background-color: transparent;
+}
+
+/* Logout button styling */
+.btn.logout-btn {
+  background-color: #ffffff;
+  color: #ff4c4c;
+  border: 2px solid #ff4c4c;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin-left: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn.logout-btn:hover {
+  background-color: #ff4c4c;
+  color: #ffffff;
+}
+
+/* Mobile View Adjustments */
+@media (max-width: 992px) {
+  .navbar {
+    width: 100%;
+  }
+
+  .navbar-left,
+  .navbar-right {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-link,
+  .btn.logout-btn {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+}
+
+#hov:hover {
+  cursor: pointer;
+  color: #ff6b6b; /* Slight red accent on hover for Logout */
+}

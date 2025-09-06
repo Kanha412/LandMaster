@@ -1,0 +1,84 @@
+<h2 class="heading">Properties</h2>
+<hr class="divider">
+<input placeholder="Search by location..." type="text" id="searchInput" class="searchInput" [(ngModel)]="filter" (ngModelChange)="filterProperties()">
+
+<div [class.blur]="propertyToDelete">
+  <table class="property-table">
+    <thead class="header-row">
+      <tr>
+        <th id="ara">
+          Title
+          <!-- <span (click)="sortProperties('Title', 'asc')">&#9650;</span>
+          <span (click)="sortProperties('Title', 'desc')">&#9660;</span> -->
+        </th>
+        <th id="ara">
+          Description
+          <!-- <span (click)="sortProperties('Description', 'asc')">&#9650;</span>
+          <span (click)="sortProperties('Description', 'desc')">&#9660;</span> -->
+        </th>
+        <th id="ara">
+          Location
+          <span (click)="sortProperties('Location', 'asc')">&#9650;</span>
+          <span (click)="sortProperties('Location', 'desc')">&#9660;</span>
+        </th>
+        <th id="ara">
+          Area Size (in SqFt)
+          <span (click)="sortProperties('AreaSize', 'asc')">&#9650;</span>
+          <span (click)="sortProperties('AreaSize', 'desc')">&#9660;</span>
+        </th>
+        <th id="ara">
+          Price
+          <span (click)="sortProperties('Price', 'asc')">&#9650;</span>
+          <span (click)="sortProperties('Price', 'desc')">&#9660;</span>
+        </th>
+        <th id="ara">
+          Posted Date
+          <span (click)="sortProperties('PostedDate', 'asc')">&#9650;</span>
+          <span (click)="sortProperties('PostedDate', 'desc')">&#9660;</span>
+        </th>
+        <th id="ara">
+          Status
+          <span (click)="sortProperties('Status', 'asc')">&#9650;</span>
+          <span (click)="sortProperties('Status', 'desc')">&#9660;</span>
+        </th>
+        <th id="ara">
+          Number of Owners
+          <span (click)="sortProperties('NumberOfOwners', 'asc')">&#9650;</span>
+          <span (click)="sortProperties('NumberOfOwners', 'desc')">&#9660;</span>
+        </th>
+        <th id="ara">
+          DTCP Approved
+        </th>
+        <th id="ara">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let property of filteredProperties | paginate: { itemsPerPage: 10, currentPage: page }; let i = index">
+        <td>{{ property.Title }}</td>
+        <td>{{ property.Description }}</td>
+        <td>{{ property.Location }}</td>
+        <td class="right-align">{{ property.AreaSize }}</td>
+        <td class="right-align">{{ property.Price | currency }}</td>
+        <td class="center-align">{{ property.PostedDate | date }}</td>
+        <td>{{ property.Status }}</td>
+        <td class="center-align">{{ property.NumberOfOwners }}</td>
+        <td>{{ property.IsDtcpApproved ? 'Yes' : 'No' }}</td>
+        <td>
+            <button (click)="editProperty(property.PropertyId)" class="edit-button" *ngIf="property.PropertyId !== undefined" [disabled]="property.Status === 'Approved'">Edit</button>
+            <button (click)="confirmDelete(property)" class="dlt-button" [disabled]="property.Status === 'Approved' || property.Status === 'Rejected'">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+
+<!-- Confirmation Dialog -->
+<div *ngIf="propertyToDelete" class="modal">
+  <div class="modal-content">
+    <h2>Confirm Delete</h2>
+    <p>Are you sure you want to delete this property: {{ propertyToDelete.Title }}?</p>
+    <button (click)="deleteProperty()" class="delete-button">Delete</button>
+    <button (click)="cancelDelete()" class="cancel-button">Cancel</button>
+  </div>
+</div>

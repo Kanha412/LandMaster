@@ -1,0 +1,117 @@
+<section class="vh-100">
+      <img src="../../../assets/background.jpg" alt="login-background-image" id="background-image">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration">
+                    <div class="card-body p-4 p-md-5">
+<form #registerForm="ngForm" (ngSubmit)="register()" class="container add">
+                            <h2 class="text-dark" style="font-family: 'Gilroy-Bold',sans-serif;text-align:center;">
+                                Registration
+                            </h2>
+                            <div class="form-group">
+                                <label for="username" class="label">Username<span style="color:red">*</span></label>
+                                <input id="username" class="form-control" name="uname" #uname="ngModel"
+                                    [(ngModel)]="userModel.Username" required minlength="5" maxlength="20"
+                                    pattern="^[a-zA-Z0-9]+$" />
+                                <div *ngIf="uname.invalid && (uname.dirty || uname.touched)"
+                                    class="err error-message text-danger">
+                                    <div *ngIf="uname.errors?.['required']">
+                                        Username is required
+                                    </div>
+                                    <div *ngIf="uname.errors?.['minlength']">
+                                        Username must be at least 5 characters long.
+                                    </div>
+                                    <div *ngIf="uname.errors?.['maxlength']">
+                                        Username cannot be more than 20 characters long.
+                                    </div>
+                                    <div *ngIf="uname.errors?.['pattern']">
+                                        Username can only contain alphanumeric characters.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="label">Email<span style="color:red">*</span></label>
+                                <input id="email" class="form-control" name="email" #email="ngModel"
+                                    [(ngModel)]="userModel.Email" required email />
+                                <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                                    class="err error-message text-danger">
+                                    <div *ngIf="email.errors?.['required']">
+                                        Email is required
+                                    </div>
+                                    <div *ngIf="email.errors?.['email']">
+                                        Enter a valid email address.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="label">Password<span style="color: red;">*</span></label>
+                                <input id="password" type="password" class="form-control" name="pass" #pass="ngModel"
+                                    [(ngModel)]="userModel.Password" required
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,}" />
+                                <div *ngIf="pass.invalid && (pass.dirty || pass.touched)"
+                                    class="err error-message text-danger">
+                                    <div *ngIf="pass.errors?.['required']">
+                                        Password is required
+                                    </div>
+                                    <div *ngIf="pass.errors?.['pattern']">
+                                        Password must include 1 Uppercase, 1 Lowercase, 1 Special, 1 digit & minimum
+                                        8 characters.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword" class="label">Confirm Password<span style="color: red;">*</span></label>
+                                <input id="confirmPassword" type="password" class="form-control" name="confirmPass"
+                                    #confirmPass="ngModel" [(ngModel)]="confirmPassword" required />
+                                <div *ngIf="confirmPass.invalid && (confirmPass.dirty || confirmPass.touched) || passwordMismatch()"
+                                    class="err error-message text-danger">
+                                    <div *ngIf="confirmPass.errors?.['required']">
+                                        Confirm Password is required
+                                    </div>
+                                    <div *ngIf="passwordMismatch()">
+                                        Passwords do not match
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile" class="label">Mobile Number<span style="color: red;">*</span></label>
+                                <input id="mobile" class="form-control" name="mobile" #mobile="ngModel"
+                                    [(ngModel)]="userModel.MobileNumber" required pattern="^\d{10}$" />
+                                <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)"
+                                    class="err error-message text-danger">
+                                    <div *ngIf="mobile.errors?.['required']">
+                                        Mobile Number is required
+                                    </div>
+                                    <div *ngIf="mobile.errors?.['pattern']">
+                                        Enter a valid 10-digit mobile number.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="role" class="label">Role<span style="color: red;">*</span></label>
+                                <select id="role" class="err form-control" name="role" #role="ngModel"
+                                    [(ngModel)]="userModel.UserRole" style="width: 104%;" required>
+                                    <option value="" disabled>Select a role</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="User">User</option>
+                                </select>
+                                <div *ngIf="role.invalid && (role.dirty || role.touched)"
+                                    class="error-message text-danger">
+                                    Role is required
+                                </div>
+                            </div><br>
+                            <button id="submit" type="submit" class="label btn btn-success"
+                                [disabled]="registerForm.invalid">
+                                Register
+                            </button>
+                            <div *ngIf="errorMessage" class="err error-message text-danger">
+                                {{ errorMessage }}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

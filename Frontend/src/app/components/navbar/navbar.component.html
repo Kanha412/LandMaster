@@ -1,0 +1,14 @@
+<nav class="navbar" *ngIf="!authService.isLoggedIn(); else loggedIn">
+    <div class="navbar-brand">
+        <a routerLink="home">LandMaster</a>
+    </div>
+    <div class="navbar-left">
+        <a routerLink="registration" class="nav-link">Register</a>
+        <a routerLink="login" class="nav-link">Login</a>
+    </div>
+</nav>
+
+<ng-template #loggedIn>
+    <app-admin-navbar *ngIf="authService.isAdmin()"></app-admin-navbar>
+    <app-user-navbar *ngIf="authService.isUser()"></app-user-navbar>
+</ng-template>

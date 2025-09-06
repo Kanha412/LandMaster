@@ -1,0 +1,138 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: left;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+thead tr {
+  background: linear-gradient(45deg, #0077b6, #005f8a); /* Blue gradient header */
+  color: #ffffff;
+  text-align: left;
+}
+
+th, td {
+  padding: 12px 15px;
+  border: 1px solid #c0c4cc; /* Soft gray border for table cells */
+}
+
+tbody tr {
+  border-bottom: 1px solid #c0c4cc;
+}
+
+tbody tr:nth-of-type(even) {
+  background-color: #f5f7fa; /* Light gray background for even rows */
+}
+
+tbody tr:last-of-type {
+  border-bottom: 2px solid #0077b6; /* Accent blue for last row */
+}
+
+tbody tr:hover {
+  background-color: #e0f0ff; /* Soft hover blue */
+  cursor: pointer;
+}
+
+.blur-background {
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+/* Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(31, 42, 56, 0.7); /* Dark overlay with transparency */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-dialog {
+  max-width: 500px;
+  width: 100%;
+  margin: 1.75rem auto;
+}
+
+.modal-content {
+  background-color: #ffffff; /* White modal content */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-header {
+  border-bottom: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #1f2a38; /* Dark slate for header text */
+}
+
+.modal-header h5 {
+  margin: 0;
+}
+
+.modal-body {
+  font-family: 'Gilroy-Medium', sans-serif;
+  color: #1f2a38; /* Dark slate for modal body text */
+}
+
+.modal-footer {
+  border-top: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-footer .btn-danger {
+  background-color: #ff4c4c; /* Modern red button */
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-footer .btn-danger:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Buttons inside table */
+.btn-custom.btn-primary {
+  background-color: #0077b6; /* Professional blue */
+  border: none;
+  color: #ffffff;
+  padding: 5px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-custom.btn-primary:hover {
+  background-color: #005f8a; /* Darker blue on hover */
+  transform: scale(1.05);
+}

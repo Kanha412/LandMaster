@@ -1,0 +1,92 @@
+<div class="content-section">
+    <video autoplay muted loop class="video-size">
+        <source src="../../../assets/intro.mp4" type="video/mp4">
+    </video>
+    <div [class.blur]="showPopup">
+        <div class="container">
+            <div class="form-box" id="formBox">
+                <div>
+                    <button class="back-button" (click)="back()"><i class="fas fa-arrow-left"></i> Back</button>
+                </div>
+                <br>
+                <br>
+                <h2>{{isEditMode ? 'Edit Land Requirement' :'Add New Land Requirement'}}</h2>
+                <form id="landRequirementForm" [formGroup]="landRequirementForm" (ngSubmit)="onSubmit()">
+                    <table>
+                        <tr>
+                            <td><label for="title"><i class="fas fa-file-alt"></i> Title:*</label></td> <br>
+                            <td><input type="text" id="title" formControlName="Title" class="form-control" placeholder="Enter title"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div *ngIf="landRequirementForm.get('Title')?.invalid && landRequirementForm.get('Title')?.touched" class="error-message">
+                                    Title is required
+                                </div>
+                               
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="description"><i class="fas fa-align-left"></i> Description:*</label></td> <br>
+                            <td><textarea id="description" formControlName="Description" class="form-control" placeholder="Enter description"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div *ngIf="landRequirementForm.get('Description')?.invalid && landRequirementForm.get('Description')?.touched" class="error-message">
+                                    Description is required
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="location"><i class="fas fa-map-marker-alt"></i> Location:*</label></td> <br>
+                            <td><input type="text" id="location" formControlName="Location" class="form-control" placeholder="Enter location"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div *ngIf="landRequirementForm.get('Location')?.invalid && landRequirementForm.get('Location')?.touched" class="error-message">
+                                    Location is required
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="areaSize"><i class="fas fa-ruler-combined"></i> Area Size (in sq.ft.):*</label></td> <br>
+                            <td><input type="number" id="areaSize" formControlName="AreaSize" class="form-control" placeholder="Enter area size"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div *ngIf="landRequirementForm.get('AreaSize')?.invalid && landRequirementForm.get('AreaSize')?.touched" class="error-message">
+                                    Area size is required
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <div *ngIf="titleExist" class="error-message">
+                                    A requirement with the title already exists.
+                                </div>
+                                <div class="submit-container">
+                                    <button type="submit" [disabled]="!landRequirementForm.valid"><i class="fas fa-paper-plane"></i> {{isEditMode ? 'Update': 'Submit'}}</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<div class="popup" *ngIf="showPopup">
+    <div class="popup-content">
+        <p>{{ isEditMode ? 'Requirement Updated Successfully!' : 'Land Requirement Added Successfully!' }}</p>
+        <button (click)="onPopupOk()">OK</button>
+    </div>
+</div>
+ 

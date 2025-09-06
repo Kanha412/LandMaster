@@ -1,0 +1,157 @@
+/* Example styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: linear-gradient(45deg, #1976d2, #0d47a1); /* Blue gradient table background */
+  border-radius: 20px;
+}
+
+.sortDropdown {
+  margin-left: 10px;
+  width: 10%;
+  height: 30px;
+  border-radius: 4rem;
+  background-color: #e3f2fd; /* Light blue dropdown */
+}
+
+th {
+  color: #ffffff; /* White header text */
+}
+
+td, th {
+  padding: 12px;
+  text-align: left;
+}
+
+/* Add alternating row colors */
+tbody tr:nth-child(odd) {
+  background-color: #e3f2fd; /* Lightest blue for odd rows */
+}
+
+tbody tr:nth-child(even) {
+  background-color: #ffffff; /* White for even rows */
+}
+
+/* Add hover effect */
+tbody tr:hover {
+  background-color: #bbdefb; /* Slightly darker hover blue */
+}
+
+button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Buttons */
+button.edit {
+  background-color: #0288d1; /* Edit button light blue */
+  color: #ffffff;
+}
+
+button.delete {
+  background-color: #d32f2f; /* Delete button dark red */
+  color: #ffffff;
+}
+
+button.closed {
+  background-color: #f57c00; /* Saffron-orange for closed */
+  color: #ffffff;
+}
+
+button.blue {
+  background-color: #1976d2; /* Dark blue */
+  color: #ffffff;
+}
+
+input.searchInput {
+  width: 25%;
+  height: 20px;
+  font-size: 1rem;
+  padding: 5px;
+  border: 1px solid #1976d2; /* Blue border */
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #0d47a1; /* Dark blue heading */
+}
+
+hr.divider {
+  border: 0;
+  height: 2px;
+  background: #1976d2; /* Blue divider */
+  margin-bottom: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  button {
+    padding: 4px 8px;
+    font-size: 14px;
+  }
+
+  input.searchInput {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .modal-content {
+    width: 90%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  th, td {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  button {
+    padding: 2px 6px;
+    font-size: 12px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .modal-content {
+    width: 90%;
+    max-width: 300px;
+  }
+}
+
+.property-table th span {
+  cursor: pointer;
+  margin-left: 5px;
+  font-size: 0.8rem;
+}
+
+.right-align {
+  text-align: center;
+}

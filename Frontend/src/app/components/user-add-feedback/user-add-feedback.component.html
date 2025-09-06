@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="feedback-card">
+      <form [formGroup]="feedbackForm" (ngSubmit)="addFeedback()">
+        <button class="back-button" (click)="back()">Back</button>
+        <h2>Add Feedback</h2>
+        <div>
+          <textarea id="feedbackText" formControlName="feedbackText" class="comment-box" placeholder="Add a Comment..."></textarea>
+          <div *ngIf="feedbackForm.get('feedbackText')?.invalid && (feedbackForm.get('feedbackText')?.touched || feedbackForm.get('feedbackText')?.dirty)">
+            <div *ngIf="feedbackForm.get('feedbackText')?.errors?.['required']" class="error-message">Feedback is required</div>
+          </div>
+        </div>
+        <div class="emojis">
+          <span class="emoji" (click)="addEmoji('😢', 'Very Bad')">😢</span>
+          <span class="emoji" (click)="addEmoji('😞', 'Not Satisfied')">😞</span>
+          <span class="emoji" (click)="addEmoji('😐', 'Moderate')">😐</span>
+          <span class="emoji" (click)="addEmoji('🙂', 'Satisfied')">🙂</span>
+          <span class="emoji" (click)="addEmoji('🥰', 'Highly Satisfied')">🥰</span>
+        </div>
+        <button type="submit" class="submit-btn">Submit Now</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="success-message" id="successMessage">
+    <p>Successfully Added!</p>
+    <button (click)="closeSuccessMessage()">OK</button>
+  </div>
+</body>
+</html>

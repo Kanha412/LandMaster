@@ -1,0 +1,48 @@
+<h1 style="text-align: center; margin-top: 10px;">Feedback Details</h1>
+<div class="container mt-5" id="backGround" [ngClass]="{'blur-background': isProfileModalOpen}">
+  <div class="row mb-3">
+    <table class="table">
+      <thead>
+        <tr class="text-center table-secondary" style="font-family: 'Gilroy-Medium', sans-serif;">
+          <th>S.No</th>
+          <th>User Name</th>
+          <th>Feedback</th>
+          <th>Posted Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let feedback of feedbacks | paginate: { itemsPerPage: count, currentPage: page }; let i = index">
+          <td>{{i+1 + (page - 1) * 6}}</td>
+          <td>{{ feedback.User?.Username }}</td>
+          <td>{{ feedback.FeedbackText }}</td>
+          <td>{{ feedback.Date | date:'dd MMMM yyyy' }}</td>
+          <td>
+            <button type="submit" class="btn-custom btn btn-primary" (click)="feedback.User && showProfile(feedback.User)">Show Profile</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="page text-right">
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': isProfileModalOpen}" aria-labelledby="profileModalLabel" aria-hidden="true" style="display: block;" *ngIf="isProfileModalOpen">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h5 class="modal-title">User Profile</h5>
+      </div>
+      <div class="modal-body text-center" style="font-family: 'Gilroy-Medium', sans-serif;">
+        <p><strong>Email: </strong>{{ selectedUser?.Email }}</p>
+        <p><strong>Username: </strong>{{ selectedUser?.Username }}</p>
+        <p><strong>Mobile Number: </strong>{{ selectedUser?.MobileNumber }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="closeProfileModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

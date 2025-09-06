@@ -1,0 +1,59 @@
+<h2 class="heading">Land Requirements</h2>
+<hr class="divider">
+ 
+<!-- Search Input -->
+<input placeholder="Search by title or Description..." type="text" id="searchInput" class="searchInput" [(ngModel)]="filter" (ngModelChange)="filterRequirements()">
+ 
+<!-- Sort Dropdown -->
+ 
+ 
+<table>
+  <thead>
+    <tr>
+      <th>S.No</th>
+      <th>
+        Title
+        <!-- <span (click)="sortRequirements('Title', 'asc')">&#9650;</span>
+        <span (click)="sortRequirements('Title', 'desc')">&#9660;</span> -->
+      </th>
+      <th>
+        Description
+        <!-- <span (click)="sortRequirements('Description', 'asc')">&#9650;</span>
+        <span (click)="sortRequirements('Description', 'desc')">&#9660;</span> -->
+      </th>
+      <th>
+        Location
+        <span (click)="sortRequirements('Location', 'asc')">&#9650;</span>
+        <span (click)="sortRequirements('Location', 'desc')">&#9660;</span>
+      </th>
+      <th >
+        Area Size(In SqFt)
+        <span (click)="sortRequirements('AreaSize', 'asc')">&#9650;</span>
+        <span (click)="sortRequirements('AreaSize', 'desc')">&#9660;</span>
+      </th>
+      <th>
+        Posted Date
+        <span (click)="sortRequirements('PostedDate', 'asc')">&#9650;</span>
+        <span (click)="sortRequirements('PostedDate', 'desc')">&#9660;</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of filteredLandRequirements | paginate: { itemsPerPage: 10, currentPage: page }; let i=index">
+      <td>{{item.LandRequirementId}}</td>
+      <td>{{item.Title}}</td>
+      <td>{{item.Description}}</td>
+      <td>{{item.Location}}</td>
+      <td class="right-align">{{item.AreaSize}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td>{{item.PostedDate | date}}</td>
+    </tr>
+  </tbody>
+</table>
+<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+ 
+ 
+ 
+
+
+
+

@@ -1,0 +1,90 @@
+/* General Navbar Styling */
+.navbar {
+  width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 1rem 0; /* keep original vertical padding */
+  background: #1e1e1e; /* modern dark theme */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1; /* same as yours */
+}
+
+/* Brand Styling */
+.navbar-brand a {
+  font-weight: 600;
+  font-size: 1.5em; /* same as yours */
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand a:hover {
+  color: #e0b341; /* gold accent */
+}
+
+/* Links */
+.nav-link {
+  font-size: 1.1em; /* same as yours */
+  margin-left: 20px;
+  margin-right: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover {
+  color: #e0b341;
+  border-bottom: 2px solid #e0b341;
+}
+
+/* Dropdown Menu Styling */
+.nav-item .dropdown-menu {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: #2a2a2a;
+  border-radius: 6px;
+  overflow: hidden;
+  min-width: 160px;
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.nav-item:hover .dropdown-menu {
+  display: block;
+}
+
+.nav-item .dropdown-item {
+  color: rgba(255, 255, 255, 0.85);
+  padding: 8px 12px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-item .dropdown-item:hover {
+  color: #e0b341;
+  background-color: #1e1e1e;
+}
+
+/* Logout button styling */
+.btn.logout-btn {
+  background-color: transparent;
+  color: #ff5a5a;
+  border: 1.5px solid #ff5a5a;
+  border-radius: 6px;
+  padding: 5px 15px; /* same as yours */
+  font-size: 1em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn.logout-btn:hover {
+  background-color: #ff5a5a;
+  color: #fff;
+}

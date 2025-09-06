@@ -1,0 +1,133 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+}
+
+th {
+  background: linear-gradient(45deg, #0077b6, #005f8a); /* Modern blue gradient */
+  color: #ffffff;
+  text-align: left;
+  padding: 12px;
+}
+
+td, th {
+  padding: 12px;
+  border: 1px solid #c0c4cc; /* Soft gray borders for consistency */
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f5f7fa; /* Light gray for odd rows */
+}
+
+tbody tr:nth-child(even) {
+  background-color: #ffffff; /* White for even rows */
+}
+
+tbody tr:hover {
+  background-color: #e0f0ff; /* Soft blue hover effect */
+}
+
+button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button.edit {
+  background-color: #0077b6; /* Blue for approve */
+  color: #ffffff;
+}
+
+button.edit:hover {
+  background-color: #005f8a;
+  transform: scale(1.05);
+}
+
+button.delete {
+  background-color: #ff4c4c; /* Red for reject */
+  color: #ffffff;
+}
+
+button.delete:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+}
+
+button.closed {
+  background-color: #ff9933; /* Accent orange for closed */
+  color: #ffffff;
+}
+
+button.blue {
+  background-color: #00b4d8; /* Cyan accent */
+  color: #ffffff;
+}
+
+input.searchInput {
+  width: 25%;
+  height: 28px;
+  font-size: 1rem;
+  padding: 5px;
+  border: 1px solid #c0c4cc; /* Gray border for consistency */
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+h2.heading {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #1f2a38; /* Dark slate heading */
+}
+
+hr.divider {
+  border: 0;
+  height: 2px;
+  background: #c0c4cc; /* Soft gray divider */
+  margin-bottom: 10px;
+}
+
+.oops {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 24px;
+  color: #ff4c4c; /* Red for no record found */
+}
+
+.right-align {
+  text-align: right;
+}
+
+.center-align {
+  text-align: center;
+}
+
+.property-table th span {
+  cursor: pointer;
+  margin-left: 5px;
+  font-size: 0.8rem;
+  color: #ffffff;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Disabled buttons */
+button:disabled {
+  background-color: #c0c4cc; /* Light gray */
+  color: #666666;
+  cursor: not-allowed;
+  opacity: 0.6;
+}

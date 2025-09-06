@@ -1,0 +1,69 @@
+<h2 class="heading">Properties</h2>
+<hr class="divider">
+<input placeholder="Search by title or Description..." type="text" id="searchInput" class="searchInput" [(ngModel)]="filter" (ngModelChange)="filterProperties()">
+
+<table>
+  <thead>
+    <tr>
+      <th>S.No</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>
+        Location
+        <span (click)="sortProperties('Location', 'asc')">&#9650;</span>
+        <span (click)="sortProperties('Location', 'desc')">&#9660;</span>
+      </th>
+      <th class="right-align">
+        Area Size(in SqFt)
+        <span (click)="sortProperties('AreaSize', 'asc')">&#9650;</span>
+        <span (click)="sortProperties('AreaSize', 'desc')">&#9660;</span>
+      </th>
+      <th class="center-align">
+        Price
+        <span (click)="sortProperties('Price', 'asc')">&#9650;</span>
+        <span (click)="sortProperties('Price', 'desc')">&#9660;</span>
+      </th>
+      <th class="center-align">
+        Posted Date
+        <span (click)="sortProperties('PostedDate', 'asc')">&#9650;</span>
+        <span (click)="sortProperties('PostedDate', 'desc')">&#9660;</span>
+      </th>
+      <th class="center-align">
+        Number of Owners
+        <span (click)="sortProperties('NumberOfOwners', 'asc')">&#9650;</span>
+        <span (click)="sortProperties('NumberOfOwners', 'desc')">&#9660;</span>
+      </th>
+      <th class="center-align">
+        DTCP Approved
+        <span (click)="sortProperties('IsDtcpApproved', 'asc')">&#9650;</span>
+        <span (click)="sortProperties('IsDtcpApproved', 'desc')">&#9660;</span>
+      </th>
+      <th class="center-align">Status</th>
+      <th class="center-align">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of filteredProperties ; let i= index">
+      <td>{{i+1 + (page - 1) * 6}}</td>
+      <td>{{item.Title}}</td>
+      <td>{{item.Description}}</td>
+      <td>{{item.Location}}</td>
+      <td class="right-align">{{item.AreaSize}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td class="right-align">{{item.Price | currency}}</td>
+      <td>{{item.PostedDate | date}}</td>
+      <td class="center-align">{{item.NumberOfOwners}}</td>
+      <td>{{item.IsDtcpApproved ? "Yes" : "No"}}</td>
+      <td>{{item.Status}}</td>
+      <td>
+        <button class="edit" *ngIf="item.PropertyId !== undefined" (click)="updateStatusApprove(item.PropertyId)" [disabled]="item.Status === 'Rejected'">Approve</button>
+        <button class="delete" *ngIf="item.PropertyId !== undefined" (click)="updateStatusReject(item.PropertyId)" [disabled]="item.Status === 'Approved'">Reject</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+
+<div class="oops" *ngIf="filteredProperties.length === 0">
+  oops! no record found
+</div>

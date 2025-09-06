@@ -1,0 +1,168 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+}
+
+th {
+  background: linear-gradient(45deg, #0077b6, #005f8a); /* Modern blue gradient */
+  color: #ffffff;
+  font-size: larger;
+  text-align: left;
+  padding: 12px;
+}
+
+td, th {
+  padding: 12px;
+  font-size: larger;
+  text-align: left;
+  border: 1px solid #c0c4cc; /* Soft gray border for consistency */
+}
+
+/* Alternating row colors */
+tbody tr:nth-child(odd) {
+  background-color: #f5f7fa; /* Light gray for odd rows */
+}
+
+tbody tr:nth-child(even) {
+  background-color: #ffffff; /* White for even rows */
+}
+
+/* Hover effect */
+tbody tr:hover {
+  background-color: #e0f0ff; /* Soft blue hover */
+}
+
+/* Buttons */
+button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: large;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button.edit {
+  background-color: #0077b6; /* Blue for edit */
+  color: #ffffff;
+}
+
+button.edit:hover {
+  background-color: #005f8a;
+  transform: scale(1.05);
+}
+
+button.delete {
+  background-color: #ff4c4c; /* Red for delete */
+  color: #ffffff;
+}
+
+button.delete:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+}
+
+button.closed {
+  background-color: #ff9933; /* Orange for closed */
+  color: #ffffff;
+}
+
+button.blue {
+  background-color: #00b4d8; /* Cyan accent */
+  color: #ffffff;
+}
+
+input.searchInput {
+  width: 30%;
+  padding: 5px;
+  height: 28px;
+  border-radius: 4px;
+  font-size: large;
+  border: 1px solid #c0c4cc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+h2.heading {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #1f2a38; /* Dark slate heading */
+}
+
+hr.divider {
+  border: 0;
+  height: 2px;
+  background: #c0c4cc; /* Soft gray divider */
+  margin-bottom: 10px;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+}
+
+.modal.show {
+  display: block;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  margin: auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 50%;
+  max-width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+button.modal-btn {
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+button.modal-delete {
+  background-color: #ff4c4c;
+  color: #ffffff;
+}
+
+button.modal-cancel {
+  background-color: #0077b6;
+  color: #ffffff;
+}
+
+.right-align {
+  text-align: right;
+}
+
+#ara {
+  text-align: center;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
